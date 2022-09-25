@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Signup from "../components/Signup.vue"
 import Welcome from "../components/Welcome.vue"
-import Profile from "../components/Profile.vue"
+import Write from "../components/Write.vue"
+import Dashboard from "../components/Dashboard.vue"
 
 
 const router = createRouter({
@@ -17,10 +18,23 @@ const router = createRouter({
       name: 'sign-up',
       component: Signup
     },
+   
     {
-      path: '/profile',
-      name: 'profile',
-      component: Profile
+      path: '/Dashboard',
+      name: 'dashboard',
+      component: Dashboard,
+      children:[
+        {
+          path: 'write',
+          name: 'write',
+          component: Write
+        },
+        // {
+        //   path: 'profile',
+        //   name: 'profile',
+        //   component: rofile
+        // },
+      ]
     },
   ]
 })
